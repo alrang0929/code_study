@@ -8,3 +8,5 @@
 ✍️2024.10.01
 - [학습중] 프로그래머스 Lv0 자바스크립트로 풀기
   (https://www.youtube.com/watch?v=GkG2KflLDBE&list=PLxKtM_ITsDytLXNhp2FaxLpSf0A0fTo6v&index=6)
+
+![코딩테스트 입문 캘린더](https://github.com/user-attachments/assets/4d5e4e19-1fcf-45da-8924-a639843e6c4e)
