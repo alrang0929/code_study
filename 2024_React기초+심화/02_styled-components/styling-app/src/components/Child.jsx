@@ -1,18 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
+import { FamilyContext } from "../context/FamilyContext";
 
-// rafc
-export const Child = ({ setCount }) => {
+function Child() {
+  const {houseName, poketMoney} = useContext(FamilyContext);
+  const stressesWorld = {
+    color: "red",
+    fontweight: 900,
+  };
   return (
-    <>
-      <h3>여기는 자식 컴포넌트 입니다</h3>
-      <button
-        // 걍 썻다가 무한증가 해버림..ㅇㅅㅇ;;;
-        onClick={() => {
-          setCount((prev) => prev + 1);
-        }}
-      >
-        증가
-      </button>
-    </>
+    <div>
+      나는 이 집안의 막내에여,
+      <br />
+      할아버지가 우리집 이름은 <span style={stressesWorld}>{houseName}</span>
+      라고 하셨어여
+      <br />
+      게다가 용돈도 <span style={stressesWorld}>{poketMoney}</span> 만큼
+      주셨답니당
+    </div>
   );
-};
+}
+
+export default Child;

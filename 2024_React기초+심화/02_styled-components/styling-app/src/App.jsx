@@ -1,24 +1,13 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
+import GrandFather from './components/GrandFather';
 
 function App(props) {
-  const idRef = useRef("");
-  //화면렌더링 구역
-  useEffect(() => {
- idRef.current.focus();
-  }, [])
-  
   return (
-    <>
     <div>
-      아이디 : <input type="text" ref={idRef}/>
+      <h1>context API</h1>
+
+      <GrandFather/>
     </div>
-    <div>
-      비밀번호 : <input type="password" />
-    </div>
-    
-    
-    
-    </>
   );
 }
 
