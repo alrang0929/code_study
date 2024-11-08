@@ -1,16 +1,23 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef } from 'react';
 
 function App(props) {
-const [value, setValue] = useState(false);
-useEffect(() => {
-console.log("hello useEffect!");
-
-}, [])
-
+  const idRef = useRef("");
+  //화면렌더링 구역
+  useEffect(() => {
+ idRef.current.focus();
+  }, [])
+  
   return (
     <>
-    <h1>useEffect</h1>
-
+    <div>
+      아이디 : <input type="text" ref={idRef}/>
+    </div>
+    <div>
+      비밀번호 : <input type="password" />
+    </div>
+    
+    
+    
     </>
   );
 }
