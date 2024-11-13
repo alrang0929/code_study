@@ -33,11 +33,12 @@ item *item 한 값을 count에 합한다.
 6. 프린트를 하기전 나머지 연산자를 사용하여 값을 반환한다.
 
 '''
-data = input()
+data = "0 4 2 5 6"
 split_data = data.split(" ")
 count = 0
 
 for item in split_data:
+    print(item)
     item = int(item)
     if item > 0 : count += item*item
     

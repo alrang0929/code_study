@@ -27,14 +27,6 @@ if(A > b) {
 if(A < b)   print("<")
 
 '''
-input_data = input()
-# 입력된 값 나누기
-A,B  = input_data.split(" ")
-A = int(A)
-B = int(B)
-
-if A>B : print(">")
-if A<B : print("<")
-if A==B : print("==")
+ 
 
 
