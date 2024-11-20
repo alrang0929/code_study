@@ -2,11 +2,10 @@ import sys
 sys.stdin = open("input.txt","r")
 
 # data = input().split
-num = int(input())
-data = list(map (int,input().split()))
-answer = 0;
+num = input()
+numbers = list(input())
+sum = 0
+for i in numbers:
+    sum=sum + int(i)
 
-for i in data:
-    answer += i
-
-print(answer)
+print(sum)
