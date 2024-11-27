@@ -54,7 +54,7 @@ yes
 
 '''
 import sys
-
+sys.stdin = open('input.txt','r')
 def is_balanced(string):
     stack = []
     for char in string:
