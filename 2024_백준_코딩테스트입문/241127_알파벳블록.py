@@ -65,7 +65,7 @@ for item in item:
                  strArr.pop()
              elif last_action == '2':
                 strArr.popleft()
-                
+if not history: strArr.append('0') #history가 빈값일 경우 처리
 print("".join(strArr))
 
 
