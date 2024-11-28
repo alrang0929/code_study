@@ -31,7 +31,7 @@
 '''
 # 정수를 저장할 x
 def result():
-    x = int(input())
+    x = input()
     # count 누적할 변수
     count = 0
 
