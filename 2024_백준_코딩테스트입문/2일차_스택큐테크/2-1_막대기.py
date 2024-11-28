@@ -44,3 +44,6 @@ heights = [int(input()) for _ in range(n)]  # 막대기의 높이 리스트
 
 # 결과 출력
 print(count_visible_rods(n, heights))
+
+# 반례 케이스 찾아보기.. 질문게시판 뒤적거리면 나옴! 다른 케이스들을 가지고 유추
+# 디버깅을 통한 단계별 체크
