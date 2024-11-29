@@ -20,7 +20,7 @@ TwinkleStar
 
 import sys
 # 1. 입력처리
-
+sys.stdin = open("input.txt","r")
 data = sys.stdin.read().splitlines()
 # 2. 변수 선언
     # 2-1. N = 노래 수
