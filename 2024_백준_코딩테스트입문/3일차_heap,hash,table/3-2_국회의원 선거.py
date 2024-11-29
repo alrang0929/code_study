@@ -42,50 +42,37 @@ M 동네사람: 100 이하
 2
 
 '''
-
-
 import heapq
 import sys
-sys.stdin = open("input.txt", "r")
 
 # 1. 입력받기
 data = sys.stdin.read().splitlines()
-dasom = int(data[0])  # 다솜의 표
-votes = list(map(int, data[1:]))  # 다른 후보들의 표
-bribes = 0  # 매수 횟수
+n = int(data[0])  # 후보의 수
+dasom = int(data[1])  # 다솜의 표
+votes = list(map(int, data[2:]))  # 다른 후보들의 표
+count = 0  # 매수 횟수
 
-# 2. 예외 처리: 다솜이가 이미 최다 득표자인 경우
-if not votes or dasom > max(votes):  # 다른 후보가 없거나 다솜이가 최다 득표자인 경우
+# 1-2. votes를 최대 힙으로 관리하기 위한 음수로 저장
+max_heap = [-v for v in votes]  # 최대 힙을 위해 음수로 변환
+heapq.heapify(max_heap)  # 리스트를 힙 구조로 변환
+
+# 2. 예외 처리: 후보가 다솜 혼자인 경우
+if n == 1:
     print(0)  # 매수 필요 없음
-    exit()
-
-# 3. 최대 힙 생성
-max_heap = [-v for v in votes]
-heapq.heapify(max_heap)
-
-# 4. 매수 작업
-while max_heap and dasom <= -max_heap[0]:
-    max_votes = -heapq.heappop(max_heap)  # 가장 많은 표를 가진 후보의 표
-
-    # 다솜이가 최다 득표자가 될 때까지 해당 후보의 표를 줄임
-    while dasom < max_votes:  # <--- 조건 변경
-        max_votes -= 1
+else:
+    # 2-1. 다솜의 표가 최대가 될 때까지 반복
+    while max_heap and -max_heap[0] >= dasom:
+        # 가장 많은 표를 가진 후보를 매수
+        max_votes = -heapq.heappop(max_heap)
         dasom += 1
-        bribes += 1
+        count += 1
+        max_votes -= 1
 
-    # 줄어든 표가 0보다 크면 다시 힙에 넣기
-    if max_votes > 0:
-        heapq.heappush(max_heap, -max_votes)
-        
-print(bribes)
+        # 매수 후 표가 남아 있으면 다시 힙에 삽입
+        if max_votes > 0:
+            heapq.heappush(max_heap, -max_votes)
 
-
-
-
-
-
-
-
+    print(count)
 
 
 
