@@ -26,9 +26,43 @@
 
 '''
 
+# 2. DFS(깊이 우선 탐색)
+def dfs(grid, visited, r, c, R, C):
+    # 상, 하, 좌, 우로 탐색
+    directions = [(-1, 0), (1, 0), (0, -1), (0, 1)]
 
-# 입력 처리
-import sys
-input = sys.stdin.readline()
-data = input.strip().split('\n')
-R, C = map(int,data[0].split())
+    stack = [(r, c)]  # DFS를 위한 스택
+    visited[r][c] = True  # 방문 처리
+
+    while stack:
+        x, y = stack.pop()
+        for dx, dy in directions:
+            nx, ny = x + dx, y + dy
+            if 0 <= nx < R and 0 <= ny < C and not visited[nx][ny] and grid[nx][ny] == '#':
+                visited[nx][ny] = True
+                stack.append((nx, ny))
+                
+                
+def count_grass_clusters(R, C, grid):
+    visited = [[False] * C for _ in range(R)]  # 방문 여부를 확인할 배열
+    cluster_count = 0
+  # 모든 셀을 탐색
+    for i in range(R):
+        for j in range(C):
+            #아직 방문하지 않은 '#'이 있을 경우
+            if grid[i][j] == '#' and not visited[i][j]:
+                # 새로운 덩어리 발견
+                #  DFS를 호출하여 연결된 모든 '#를 방문'
+                dfs(grid, visited, i, j, R, C)
+                cluster_count += 1  # 덩어리 수 증가
+    # 덩어리의 수를 반환
+    return cluster_count
+
+# 1. 입력 처리 
+R, C = map(int,input().split())#R=행, C = 열
+# 2차원 리스트로 저장
+grid = [input().strip() for _ in range(R)]
+
+# 풀이 실행
+result = count_grass_clusters(R, C, grid)
+print(result)
