@@ -61,4 +61,5 @@ for i in range(N):
     
 print(S)
 
+# 전체 시간복잡도: O(n log n)
 # 시작시간: 7:17 풀이완료: 7:38
