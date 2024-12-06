@@ -64,10 +64,10 @@ def can_reach_goal(N, board):
               [False, False, False]]
     '''
     # 3. 시작점 방문 처리
-    visited[0][0] = True  
+    visited[0][0] = True
     '''
-    visited = [[True, True, False], 
-              [False, True, False],
+    visited = [[True, False, False], 
+              [False, False, False],
               [False, False, False]]
     '''
     # 2. queue가 true일 경우 반복
