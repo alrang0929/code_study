@@ -24,13 +24,13 @@ def calculate_kinship():
         x, y = map(int, input().split())
         relations.append((x, y))
 
-    # 그래프를 인접 리스트로 표현합니다.
+    # 그래프를 인접 리스트로 표현
     graph = [[] for _ in range(n + 1)]
     for x, y in relations:
         graph[x].append(y)
         graph[y].append(x)
 
-    # DFS를 사용하여 촌수를 찾습니다.
+    # DFS를 사용하여 촌수 찾기
     visited = [False] * (n + 1)
     result = []
 
