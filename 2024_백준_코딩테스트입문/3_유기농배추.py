@@ -63,7 +63,7 @@ def 농사():
         for i in range(n):
             for j in range(m):
                 if grid[i][j] == 1:  # 배추가 심어진 곳에서 BFS 시작
-                    bfs(grid, i, j, n, m)
+                    bfs(grid, i, j)
                     배추흰나비 += 1
         
         results.append(배추흰나비)

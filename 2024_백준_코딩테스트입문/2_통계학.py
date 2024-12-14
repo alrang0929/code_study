@@ -32,7 +32,6 @@ num_list.sort()
 # 3. 최빈값
 frequency = Counter(num_list)
 most_common = frequency.most_common()
-most_common.sort(key=lambda x: (-x[1], x[0]))  # 빈도수 내림차순, 값 오름차순 정렬
 
 if len(most_common) > 1 and most_common[0][1] == most_common[1][1]:
     최빈값 = most_common[1][0]
