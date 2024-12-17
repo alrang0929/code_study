@@ -11,6 +11,10 @@ const App = () => {
     // 컴포넌트 마운트 시 todos를 가져오는 비동기 액션 디스패치
     dispatch(fetchTodos());
   }, [dispatch]);
+// 기존의 redux : dispatch 안에는 액션 객체가 들어가야함 
+// 그렇다면 여기서 fetchTodos()는 action creater일까? 
+// fetchTodos()는 액션 객체가 아닌 청크함수를 넘겨주는 것
+
 
   return (
     <div>

@@ -6,9 +6,13 @@ export const fetchTodos = createAsyncThunk("todos/fetchTodos", async () => {
   const response = await axios.get("http://localhost:4000/todos");
   return response.data;
 });
+// createAsyncThunk를 통해 호출된 결과물을 담고있음 
 
+// 1. createAsyncThunk을 통해 처리된 이름을 부여
 export const addTodoAsync = createAsyncThunk("todos/addTodo", async (todo) => {
+  // 2. 비동기 함수에 대한 내용을 처리를 하고 그 내용을 가지고 그 내부의 스토어에 값을 전달하기 위한 것
   const response = await axios.post("http://localhost:4000/todos", todo);
+  // 리턴된 값이 적달되는 것것
   return response.data;
 });
 
