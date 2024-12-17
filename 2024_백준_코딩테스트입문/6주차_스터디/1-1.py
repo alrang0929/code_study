@@ -27,3 +27,40 @@
 44
 
 '''
+
+import heapq
+from collections import defaultdict
+
+def process_queries(queries):
+    gorilla_data = defaultdict(list)  # 고릴라 이름별 정보 저장
+    total_value = 0  # 호석이의 정보 구매 총합
+
+    for query in queries:
+        parts = query.split()
+        q_type = int(parts[0])
+        name = parts[1]
+
+        if q_type == 1:
+            # 정보 추가
+            k = int(parts[2])
+            values = map(int, parts[3:])
+            for value in values:
+                heapq.heappush(gorilla_data[name], -value)  # 최대 힙 (음수로 저장)
+        elif q_type == 2:
+            # 정보 구매
+            b = int(parts[2])
+            if name in gorilla_data:
+                for _ in range(b):
+                    if gorilla_data[name]:  # 고릴라에게 정보가 있으면
+                        total_value += -heapq.heappop(gorilla_data[name])  # 음수로 저장된 값을 복원
+                    else:
+                        break  # 고릴라가 더 이상 정보가 없으면 종료
+
+    return total_value
+
+# 입력 처리
+q = int(input())
+queries = [input() for _ in range(q)]
+
+# 결과 출력
+print(process_queries(queries))
